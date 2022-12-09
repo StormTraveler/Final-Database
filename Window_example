@@ -7,44 +7,23 @@ class GUI():
 
                 self.window = tkinter.Tk()
 
-                self.top_frame = tkinter.Frame(self.window)
-                self.lower_frame = tkinter.Frame(self.window)
+                self.label = tkinter.Label(self.window, text = 'Input: ')
+                self.label.pack()
 
-                self.label = tkinter.Label(self.top_frame, text = 'How much can it hold?: ')
+                self.entry = tkinter.Entry(self.window, width = 10)
+                self.entry.pack()
 
-                self.gas_entry = tkinter.Entry(self.top_frame, width = 10)
-                self.gas_entry.pack()
 
-                self.miles_label = tkinter.Label(self.top_frame, text='How far can you get on a full tank?: ')
 
-                self.miles_entry = tkinter.Entry(self.lower_frame, width = 10)
 
-                self.miles_entry.pack()
 
-                self.label.pack(side='top')
-
-                self.miles_label.pack(side='bottom')
-
-                self.calc_button = tkinter.Button(self.lower_frame, text='calculate MPG', command=self.convert)
-                self.quit_button = tkinter.Button(self.lower_frame, text='Quit', command=self.window.destroy)
+                self.quit_button = tkinter.Button(self.window, text='Quit', command=self.window.destroy)
 
                 self.quit_button.pack(side='left')
-                self.calc_button.pack(side='left')
-                self.top_frame.pack()
-                self.lower_frame.pack()
 
 
                 tkinter.mainloop()
 
-        def convert(self):
-
-                miles = float(self.miles_entry.get())
-
-                gas_gallons = float(self.gas_entry.get())
-
-                MPG = miles/gas_gallons
-
-                tkinter.messagebox.showinfo("Results", "your cars MPG = " + str(MPG))
 
 
 
